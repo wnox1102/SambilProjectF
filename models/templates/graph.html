@@ -130,14 +130,14 @@
     <section>
         <div class="row">
             <div class="col-sm-7">
-                <div class="card" style="position: relative; left: 35%; width: 1000px; height: 600px;">
+                <div class="card" style="position: relative; left: 35%; width: 1000px; height: 680px;">
                     <div class="card-title" style="text-align: center;">
                         <br>
                         <h3>Flujo de personas que salen del centro comercial por hora</h3>
                     </div>
                     <hr>
                     <div class="card-body">
-                        <canvas id="myChart7" width="1600" height="800", style="background-image:url('https://github.com/wnox1102/SambilProjectF/blob/master/img/piso1.png?raw=true');"></canvas>
+                        <canvas id="myChart7" width="1050" height="550", style="background-image:url('https://github.com/wnox1102/SambilProjectF/blob/master/img/piso1.png?raw=true');"></canvas>
                         
                     </div>
                 </div>
@@ -400,15 +400,17 @@
             new Chart(document.getElementById("myChart7"), {
     type: 'bubble',
     data: {
-      labels: "Africa",
-      datasets: [
+      datasets: [{data:[{
+          x:0,
+          y:0,
+      }]},
         {
           label: ["China"],
-          backgroundColor: "rgba(255,221,50,0.2)",
-          borderColor: "rgba(255,221,50,1)",
+          backgroundColor: "rgba(250,55,55,0.7)",
+          borderColor: "rgba(255,55,55,1)",
           data: [{
-            x: 17,
-            y: 5.245,
+            x: 14.5,
+            y:2,
             r: 15
           }]
         }, {
@@ -425,8 +427,8 @@
           backgroundColor: "rgba(0,0,0,0.2)",
           borderColor: "#000",
           data: [{
-            x: 10,
-            y: 6.994,
+            x: 7.15,
+            y: 6.8,
             r: 15
           }]
         }, {
