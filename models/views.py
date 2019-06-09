@@ -16,7 +16,7 @@ class Graph(View):
         template_name = 'graph.html'
         number =[0,1,2,3]
         result = []
-        sql='''SELECT count(id) FROM public.models_entradacc WHERE fkcamara_id=2 AND date_part('hour',registroe)>=8 AND date_part('hour',registroe)<=23 GROUP BY date_part('hour',registroe);'''
+        sql='''SELECT count(id) FROM public.models_entradacc WHERE fkcamara_id=3 AND date_part('hour',registroe)>=8 AND date_part('hour',registroe)<=23 GROUP BY date_part('hour',registroe);'''
         df = pd.read_sql_query(sql, conn)
         for index, row in df.iterrows():
                 result.append(row['count'])
@@ -40,11 +40,11 @@ def get_data(request, *args, **kwargs):
 
         #querys para  contar las personas por camara 
 
-        q1 = EntradaCC.objects.values('fkcamara__modelo').annotate(cuenta=Count('id'))
-
+        q1 = EntradaCC.objects.values('fkcamara__id').annotate(cuenta=Count('id'))
         for l in q1:
             cuenta.append(l['cuenta'])
-            camara.append(l['fkcamara__modelo'])
+            camara.append(l['fkcamara__id'])
+        print(camara)
 
         # query para mostrar la cantidad de personas que entraron al centro comercial con y sin telefono
 

@@ -125,6 +125,29 @@
         </div>
 
     </section>
+    <br>
+
+    <section>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="card" style="position: relative; left: 35%; width: 1000px; height: 600px;">
+                    <div class="card-title" style="text-align: center;">
+                        <br>
+                        <h3>Flujo de personas que salen del centro comercial por hora</h3>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <canvas id="myChart7" width="1600" height="800", style="background-image:src('img/piso1.png');"></canvas>
+                        <div>
+
+                            <img src="/img/piso1.png" alt="">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
     
 </body>
 
@@ -137,13 +160,13 @@
         url:'data/',
         success: function(data){
         var ctx = document.getElementById('myChart').getContext('2d');
-        console.log(data)
+        console.log(data.labels)
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels:["ENTRADA 1","ENTRADA 2", "ENTRADA 3"],
+                labels:data.labels,
                 datasets: [{
-                    label: 'Entrada de Personas Por Camara',
+                    label: 'Flujo de las personas por cada entrada',
                     data: data.default,
                     backgroundColor: [
                         'rgba(255, 99, 132, 1)',
@@ -365,6 +388,80 @@
                 text: 'Flujo de salida de las personas por hora '
               }
             }
+});
+        },
+        error: function (error_data){
+            console.log(error_data)
+        }
+    });
+
+    $.ajax({
+        method:'GET',
+        url:'data/',
+        success: function(data){
+            new Chart(document.getElementById("myChart7"), {
+    type: 'bubble',
+    data: {
+      labels: "Africa",
+      datasets: [
+        {
+          label: ["China"],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 17,
+            y: 5.245,
+            r: 15
+          }]
+        }, {
+          label: ["Denmark"],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 27.5,
+            y: 8.3,
+            r: 69
+          }]
+        }, {
+          label: ["Germany"],
+          backgroundColor: "rgba(0,0,0,0.2)",
+          borderColor: "#000",
+          data: [{
+            x: 10,
+            y: 6.994,
+            r: 15
+          }]
+        }, {
+          label: ["Japan"],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 35,
+            y: 5.921,
+            r: 15
+          }]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }, scales: {
+        yAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Happiness"
+          }
+        }],
+        xAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "GDP (PPP)"
+          }
+        }]
+      }
+    }
 });
         },
         error: function (error_data){
