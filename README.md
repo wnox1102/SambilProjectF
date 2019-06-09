@@ -5,34 +5,38 @@ Para comenzar el proyecto debe instalar las siguientes librerias de python Djang
 
 #-----------------------------------------------------------------------------------------------------------------------------------------#
 
-Windows pip install django
+Windows 
 
-Luego que se instale la libreria se procede a correr el proyecto:
+1)  pip install django
 
-python manage.py makemigrations ( para guardar los cambios realizados en la base de datos )
+2)  Luego que se instale la libreria se procede a correr el proyecto:
 
-python manage.py migrate ( para crear las tablas en la base de datos )
+3)  python manage.py makemigrations ( para guardar los cambios realizados en la base de datos )
 
-python manage.py createsuperuser ( crear un usuario para loggearte y ver la pagina administrativa del proyecto "opcional" )
+4)  python manage.py migrate ( para crear las tablas en la base de datos )
 
-python3.6 manage.py runserver localhost:puerto ( Comando para correr el proyecto, ejemplo python3.6 manage.py runserver localhost:8000)
+5)  python manage.py createsuperuser ( crear un usuario para loggearte y ver la pagina administrativa del proyecto "opcional" )
+
+6)  python3.6 manage.py runserver localhost:puerto ( Comando para correr el proyecto, ejemplo python3.6 manage.py runserver localhost:8000)
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
 Linux ( Ubuntu ):
 
-sudo apt update
-sudo apt install python3-django
-django-admin --version ------> output 1.11.11 u otras versionas mas recientes
+1)  sudo apt update
 
-sudo apt install python3-pip
+2)  sudo apt install python3-django
 
-pip install django
+3)  django-admin --version ------> output 1.11.11 u otras versionas mas recientes
 
-python manage.py makemigrations ( para guardar los cambios realizados en la base de datos )
+4)  sudo apt install python3-pip
 
-python manage.py migrate ( para crear las tablas en la base de datos )
+5)  pip install django
 
-python manage.py createsuperuser ( crear un usuario para loggearte y ver la pagina administrativa del proyecto "opcional" )
+6)  python manage.py makemigrations ( para guardar los cambios realizados en la base de datos )
 
-python manage.py runserver localhost:puerto ( Comando para correr el proyecto, ejemplo python3.6 manage.py runserver localhost:8000)
+7)  python manage.py migrate ( para crear las tablas en la base de datos )
+
+8)  python manage.py createsuperuser ( crear un usuario para loggearte y ver la pagina administrativa del proyecto "opcional" )
+
+9)  python manage.py runserver localhost:puerto ( Comando para correr el proyecto, ejemplo python3.6 manage.py runserver localhost:8000)
