@@ -6,7 +6,8 @@ Para comenzar el proyecto debe instalar las siguientes librerias de python Djang
 #-----------------------------------------------------------------------------------------------------------------------------------------#
 
 Windows 
-
+  NOTA: Antes de correr el proyecto debe configurar las variables de la base de datos para realizar una conexion segura
+  
 1)  pip install django
 
 2)  Luego que se instale la libreria se procede a correr el proyecto:
