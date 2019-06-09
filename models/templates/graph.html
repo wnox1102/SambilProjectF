@@ -11,8 +11,6 @@
 </head>
 
 <style>
-
-
 </style>
 <body>
     <header>
@@ -28,7 +26,11 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-title" style="text-align: center;">La siguiente grafica refleja el flujo de personas por cada entrada</div>
+                            <div class="card-title" style="text-align: center;">
+                                <br>
+                                <h3>La siguiente grafica refleja el flujo de personas por cada entrada</h3>
+
+                                </div>
                             <hr>
                             <div class="card-body">
                                 <canvas id="myChart" width="400" height="400"></canvas>
@@ -38,7 +40,10 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-title" style="text-align: center;">La siguiente grafica refleja la cantidad de personas que entran con telefono inteligente y los que no</div>
+                            <div class="card-title" style="text-align: center;">
+                                <br>
+                                <h3> siguiente grafica refleja la cantidad de personas que entran con telefono inteligente y los que no</h3>
+                            </div>
                             <hr>
                             <div class="card-body">
                                     <canvas id="myChart2" width="400" height="400"></canvas>
@@ -55,7 +60,10 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-title" style="text-align: center;">Diversidad de personas que ingresan al centro comercial por edad </div>
+                            <div class="card-title" style="text-align: center;">
+                                <br>
+                               <h3> Diversidad de personas que ingresan al centro comercial por edad </h3>
+                            </div>
                             <hr>
                             <div class="card-body">
                                 <canvas id="myChart3" width="400" height="400"></canvas>
@@ -65,7 +73,10 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-title" style="text-align: center;">La siguiente grafica muestra las tiendas con mas ventas en la semana </div>
+                            <div class="card-title" style="text-align: center;">
+                                <br>
+                               <h3> La siguiente grafica muestra las tiendas con mas ventas en la semana</h3>
+                             </div>
                             <hr>
                             <div class="card-body">
                                     <canvas id="myChart4" width="400" height="400"></canvas>
@@ -80,13 +91,34 @@
     <br>
     <section>
         <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-title" style="text-align: center;">Diversidad de personas que ingresan al centro comercial por edad </div>
+                <div class="col-sm-7">
+                    <div class="card" style="position: relative; left: 35%; width: 1000px; height: 600px;">
+                        <div class="card-title" style="text-align: center;">
+                            <br>
+                            <h3>Flujo de personas que ingresan al centro comercial por hora</h3>
+                        </div>
                         <hr>
                         <div class="card-body">
-                            <canvas id="myChart5" width="400" height="400"></canvas>
+                            <canvas id="myChart5" width="1600" height="800"></canvas>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </section>
+    <br>
+    <br>
+    <section>
+        <div class="row">
+                <div class="col-sm-7">
+                    <div class="card" style="position: relative; left: 35%; width: 1000px; height: 600px;">
+                        <div class="card-title" style="text-align: center;">
+                            <br>
+                            <h3>Flujo de personas que ingresan al centro comercial por hora</h3>
+                        </div>
+                        <hr>
+                        <div class="card-body">
+                            <canvas id="myChart6" width="1600" height="800"></canvas>
                         </div>
                     </div>
                 </div>
@@ -109,7 +141,7 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels:data.labels,
+                labels:["ENTRADA 1","ENTRADA 2", "ENTRADA 3"],
                 datasets: [{
                     label: 'Entrada de Personas Por Camara',
                     data: data.default,
@@ -195,7 +227,7 @@
     new Chart(document.getElementById("myChart3"), {
     type: 'radar',
     data: {
-      labels: ["50 años", "40 años", "30 años", "20 años", "10 años"],
+      labels: ["0-9 años","10-20 años", "21-30 años", "31-40 años", "41-50 años", "51-60 años","61-70 años","71-80 años","81-90 años"],
       datasets: [
         {
           label: "Con Telefono Inteligente",
@@ -256,15 +288,12 @@
       }
     }
 });
-
-
             
         },
         error: function (error_data){
             console.log(error_data)
         }
     });
-
     $.ajax({
         method:'GET',
         url:'data/',
@@ -272,31 +301,21 @@
         new Chart(document.getElementById("myChart5"), {
             type: 'line',
             data: {
-              labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+              labels: data.labelsHora,
               datasets: [{ 
-                  data: [86,114,106,106,107,111,133,221,783,2478],
-                  label: "Africa",
+                  data: data.default6,
+                  label: "Entrada 1",
                   borderColor: "#3e95cd",
                   fill: false
                 }, { 
-                  data: [282,350,411,502,635,809,947,1402,3700,5267],
-                  label: "Asia",
+                  data: data.default7,
+                  label: "Entrada 2",
                   borderColor: "#8e5ea2",
                   fill: false
                 }, { 
-                  data: [168,170,178,190,203,276,408,547,675,734],
-                  label: "Europe",
+                  data: data.default8,
+                  label: "Entrada 3",
                   borderColor: "#3cba9f",
-                  fill: false
-                }, { 
-                  data: [40,20,10,16,24,38,74,167,508,784],
-                  label: "Latin America",
-                  borderColor: "#e8c3b9",
-                  fill: false
-                }, { 
-                  data: [6,3,2,2,7,26,82,172,312,433],
-                  label: "North America",
-                  borderColor: "#c45850",
                   fill: false
                 }
               ]
@@ -304,7 +323,7 @@
             options: {
               title: {
                 display: true,
-                text: 'World population per region (in millions)'
+                text: 'Cantidad de Personas por hora '
               }
             }
 });
@@ -313,6 +332,44 @@
             console.log(error_data)
         }
     });
-     
+    
+    $.ajax({
+        method:'GET',
+        url:'data/',
+        success: function(data){
+            new Chart(document.getElementById("myChart6"), {
+            type: 'line',
+            data: {
+              labels: data.labelsHora,
+              datasets: [{ 
+                  data: data.default9,
+                  label: "Entrada 1",
+                  borderColor: "#3e95cd",
+                  fill: false
+                }, { 
+                  data: data.default10,
+                  label: "Entrada 2",
+                  borderColor: "#8e5ea2",
+                  fill: false
+                }, { 
+                  data: data.default11,
+                  label: "Entrada 3",
+                  borderColor: "#3cba9f",
+                  fill: false
+                }
+              ]
+            },
+            options: {
+              title: {
+                display: true,
+                text: 'Flujo de salida de las personas por hora '
+              }
+            }
+});
+        },
+        error: function (error_data){
+            console.log(error_data)
+        }
+    });
         </script>
 </html>
